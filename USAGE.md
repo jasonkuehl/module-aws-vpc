@@ -42,7 +42,7 @@ No modules.
 | <a name="input_public_subnet"></a> [public\_subnet](#input\_public\_subnet) | Map of AZ to a number that should be used for public subnets | `map(number)` | <pre>{<br>  "us-east-2a": 1,<br>  "us-east-2b": 2,<br>  "us-east-2c": 3<br>}</pre> | no |
 | <a name="input_region"></a> [region](#input\_region) | region | `string` | n/a | yes |
 | <a name="input_vpc-name"></a> [vpc-name](#input\_vpc-name) | Naming the VPC | `string` | n/a | yes |
-| <a name="input_vpc_cidr"></a> [vpc\_cidr](#input\_vpc\_cidr) | The IP range to use for the VPC | `string` | `"10.50.0.0/16"` | no |
+| <a name="input_vpc_cidr"></a> [vpc\_cidr](#input\_vpc\_cidr) | The IP range to use for the VPC | `string` | `"10.150.0.0/16"` | no |
 
 ## Outputs
 
