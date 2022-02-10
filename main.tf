@@ -54,7 +54,7 @@ resource "aws_subnet" "public-default" {
 
   vpc_id                  = aws_vpc.default.id
   cidr_block              = cidrsubnet(aws_vpc.default.cidr_block, 8, each.value)
-  availability_zone       =  each.key
+  availability_zone       = each.key
   map_public_ip_on_launch = false
 
   tags = {
