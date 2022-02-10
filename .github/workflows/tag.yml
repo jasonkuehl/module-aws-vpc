@@ -2,7 +2,7 @@ name: auto_tagger
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   build:
     if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true

@@ -47,5 +47,5 @@ variable "private_subnet" {
 variable "vpc_cidr" {
   type        = string
   description = "The IP range to use for the VPC"
-  default     = "10.50.0.0/16"
+  default     = "10.150.0.0/16"
 }

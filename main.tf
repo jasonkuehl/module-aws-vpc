@@ -38,7 +38,7 @@ resource "aws_subnet" "private-default" {
   for_each = var.private_subnet
 
   vpc_id                  = aws_vpc.default.id
-  cidr_block              = cidrsubnet(aws_vpc.default.cidr_block, 4, each.value)
+  cidr_block              = cidrsubnet(aws_vpc.default.cidr_block, 8, each.value)
   availability_zone       = each.key
   map_public_ip_on_launch = false
 
@@ -53,7 +53,7 @@ resource "aws_subnet" "public-default" {
   for_each = var.public_subnet
 
   vpc_id                  = aws_vpc.default.id
-  cidr_block              = cidrsubnet(aws_vpc.default.cidr_block, 4, each.value)
+  cidr_block              = cidrsubnet(aws_vpc.default.cidr_block, 8, each.value)
   availability_zone       =  each.key
   map_public_ip_on_launch = false
 
