@@ -38,15 +38,19 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_domain_settings_local"></a> [domain\_settings\_local](#input\_domain\_settings\_local) | domain\_settings\_local additon | `string` | n/a | yes |
 | <a name="input_main_octet"></a> [main\_octet](#input\_main\_octet) | Second onctet for the vpc | `string` | n/a | yes |
-| <a name="input_private_subnet"></a> [private\_subnet](#input\_private\_subnet) | Map of AZ to a number that should be used for private subnets | `map(number)` | <pre>{<br>  "us-east-2a": 10,<br>  "us-east-2b": 11,<br>  "us-east-2c": 12<br>}</pre> | no |
-| <a name="input_public_subnet"></a> [public\_subnet](#input\_public\_subnet) | Map of AZ to a number that should be used for public subnets | `map(number)` | <pre>{<br>  "us-east-2a": 1,<br>  "us-east-2b": 2,<br>  "us-east-2c": 3<br>}</pre> | no |
+| <a name="input_private_subnet"></a> [private\_subnet](#input\_private\_subnet) | n/a | `map(number)` | n/a | yes |
+| <a name="input_public_subnet"></a> [public\_subnet](#input\_public\_subnet) | n/a | `map(number)` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | region | `string` | n/a | yes |
 | <a name="input_vpc-name"></a> [vpc-name](#input\_vpc-name) | Naming the VPC | `string` | n/a | yes |
-| <a name="input_vpc_cidr"></a> [vpc\_cidr](#input\_vpc\_cidr) | The IP range to use for the VPC | `string` | `"10.150.0.0/16"` | no |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_vpc_cidr"></a> [vpc\_cidr](#output\_vpc\_cidr) | n/a |
+| <a name="output_vpc_id"></a> [vpc\_id](#output\_vpc\_id) | n/a |
+| <a name="output_vpc_private_subnets"></a> [vpc\_private\_subnets](#output\_vpc\_private\_subnets) | n/a |
+| <a name="output_vpc_public_subnets"></a> [vpc\_public\_subnets](#output\_vpc\_public\_subnets) | n/a |
 
 <!--- END_TF_DOCS --->
 
