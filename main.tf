@@ -34,49 +34,31 @@ resource "aws_internet_gateway" "default" {
 
 #Private (Green Zone)
 
-resource "aws_subnet" "private-default-a" {
+resource "aws_subnet" "private-default" {
+  for_each = var.private_subnet
+
   vpc_id                  = aws_vpc.default.id
-  cidr_block              = "10.${var.main_octet}.1.0/24"
-  availability_zone       = "us-east-1a"
+  cidr_block              = cidrsubnet(aws_vpc.default.cidr_block, 4, each.value)
+  availability_zone       = each.key
   map_public_ip_on_launch = false
 
   tags = {
-    "Name" = "Private ${var.vpc-name} A"
-  }
-}
-
-resource "aws_subnet" "private-default-b" {
-  vpc_id                  = aws_vpc.default.id
-  cidr_block              = "10.${var.main_octet}.2.0/24"
-  availability_zone       = "us-east-1b"
-  map_public_ip_on_launch = false
-
-  tags = {
-    "Name" = "Private ${var.vpc-name} B"
+    "Name" = "${each.key}-${each.value}"
   }
 }
 
 #Public (Red Zone)
 
-resource "aws_subnet" "public-default-a" {
+resource "aws_subnet" "public-default" {
+  for_each = var.public_subnet
+
   vpc_id                  = aws_vpc.default.id
-  cidr_block              = "10.${var.main_octet}.10.0/24"
-  availability_zone       = "us-east-1a"
+  cidr_block              = cidrsubnet(aws_vpc.default.cidr_block, 4, each.value)
+  availability_zone       =  each.key
   map_public_ip_on_launch = false
 
   tags = {
-    "Name" = "Public ${var.vpc-name} A"
-  }
-}
-
-resource "aws_subnet" "public-default-b" {
-  vpc_id                  = aws_vpc.default.id
-  cidr_block              = "10.${var.main_octet}.11.0/24"
-  availability_zone       = "us-east-1b"
-  map_public_ip_on_launch = false
-
-  tags = {
-    "Name" = "Public ${var.vpc-name} B"
+    "Name" = "${each.key}-${each.value}"
   }
 }
 
@@ -112,13 +94,10 @@ resource "aws_main_route_table_association" "main" {
   route_table_id = aws_route_table.main-default-route-table.id
 }
 
-resource "aws_route_table_association" "public-default-a" {
-  subnet_id      = aws_subnet.public-default-a.id
-  route_table_id = aws_route_table.default-public-route.id
-}
+resource "aws_route_table_association" "public-default" {
+  for_each = var.public_subnet
 
-resource "aws_route_table_association" "public-default-b" {
-  subnet_id      = aws_subnet.public-default-b.id
+  subnet_id      = aws_subnet.public-default[each.key].id
   route_table_id = aws_route_table.default-public-route.id
 }
 
