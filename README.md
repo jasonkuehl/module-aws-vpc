@@ -1,3 +1,7 @@
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=jasonkuehl_terraform-aws-vpc&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=jasonkuehl_terraform-aws-vpc)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=jasonkuehl_terraform-aws-vpc&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=jasonkuehl_terraform-aws-vpc)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=jasonkuehl_terraform-aws-vpc&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=jasonkuehl_terraform-aws-vpc)
+
 # vpc-module
 Another VPC Module
 
