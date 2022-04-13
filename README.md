@@ -5,7 +5,7 @@
 # vpc-module
 Another VPC Module
 
-The module is made specifc for my needed for my personal amazon account.
+## The module is made specifc for my needed for my personal amazon account.
 
 - Sets up the route tables for the public and private subnets you specify.
 - IPV6 Enabled by default
@@ -15,9 +15,10 @@ The module is made specifc for my needed for my personal amazon account.
 - Creates an egress only internet gateway for IPv6 traffic outbound from the private subnets.
 
 
-Module Example
+## Module Example
 
-```module "vpc" {
+```hcl
+module "vpc" {
   source = "git@github.com:jasonkuehl/vpc-module.git?ref=vX.X.X"
 
   region                = us-east-2
@@ -30,7 +31,8 @@ Module Example
 ```
 
 Im using a subnet map based on the region and setting an octet for each. This is accessible from the outputs.
-```
+```hcl
+
 variable "public_subnet" {
   type = map(number)
  
